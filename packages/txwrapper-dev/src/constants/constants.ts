@@ -1,14 +1,17 @@
 import { kusamaMetadataHex } from '../metadata/kusama';
 import { polkadotMetadataHex } from '../metadata/polkadot';
+import { westendMetadataHex } from '../metadata';
 import { statemineMetadataHex } from '../metadata/statemine';
 import {
 	memoizedKusamaGetRegistry,
 	memoizedPolkadotGetRegistry,
 	memoizedStatemineGetRegistry,
+	memoizedWestendGetRegistry,
 } from '../registries';
 
 export const KUSAMA_SPEC_VERSION = 9430;
 export const POLKADOT_SPEC_VERSION = 9430;
+export const WESTEND_SPEC_VERSION = 9430;
 const STATEMINT_SPEC_VERSION = 9360;
 
 /**
@@ -85,6 +88,12 @@ export const STATEMINE_TEST_OPTIONS = {
 		statemineMetadataHex
 	),
 };
+
+export const WESTEND_TEST_OPTIONS = {
+  metadataRpc: westendMetadataHex,
+  registry: memoizedWestendGetRegistry(WESTEND_SPEC_VERSION, westendMetadataHex),
+};
+
 /**
  * Dummy arguments for all methods we're testing.
  */
